@@ -201,4 +201,4 @@ def unhandledException(error):
     """.format(traceback=file.getvalue()), 500 # return error code from https://stackoverflow.com/a/7824605
 
 if __name__ == "__main__":
-    app.run(debug=DEBUG, host="0.0.0.0", port=PORT)
+    app.run(debug=DEBUG, host="132.0.0.0", port=PORT)

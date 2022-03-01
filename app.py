@@ -19,8 +19,8 @@ from convert_to_ics import ConvertToICS
 
 # configuration
 DEBUG = os.environ.get("APP_DEBUG", "true").lower() == "true"
-PORT = int(os.environ.get("PORT", "5000"))
-CACHE_REQUESTED_URLS_FOR_SECONDS = int(os.environ.get("CACHE_REQUESTED_URLS_FOR_SECONDS", 600))
+PORT = int(os.environ.get("PORT", "7098"))
+CACHE_REQUESTED_URLS_FOR_SECONDS = int(os.environ.get("CACHE_REQUESTED_URLS_FOR_SECONDS", 10))
 
 # constants
 HERE = os.path.dirname(__name__) or "."

@@ -8981,7 +8981,7 @@ scheduler._skin_init = function(){
 			var inc = 14;
 
 			if(scheduler._is_material_skin()){
-				positions = [16, 103, 192];
+				positions = [16, 50, 50+72];
 				last = 294;
 				inc = -1;
 			}

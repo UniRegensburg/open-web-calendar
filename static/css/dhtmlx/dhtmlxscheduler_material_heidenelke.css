@@ -208,11 +208,16 @@ div.dhx_modal_cover {
 .dhx_cal_event .dhx_title,
 .dhx_cal_event .dhx_body,
 .dhx_cal_event .dhx_footer {
-  background-color: #9c004b;
   border: 1px solid transparent;
   color: #ffffff;
   overflow: hidden;
   width: 100%;
+}
+.dhx_cal_event .dhx_body {
+  background-color: #0288d1;
+}
+.dhx_cal_event .tentative {
+  background-color: #aaaaaa;
 }
 .dhx_move_denid .dhx_cal_event .dhx_header,
 .dhx_move_denied .dhx_cal_event .dhx_title {
@@ -266,7 +271,7 @@ div.dhx_modal_cover {
   border-width: 0;
   position: relative;
   top: 0px;
-  background: url(imgs_dhx_material/drag-horizontal.svg) no-repeat center center;
+  background: url(imgs_dhx_heidenelke/drag-horizontal.svg) no-repeat center center;
 }
 .dhx_cal_event .dhx_resize_denied.dhx_event_resize.dhx_footer {
   height: 0;
@@ -334,7 +339,7 @@ div.dhx_menu_head {
   cursor: default;
 }
 div.dhx_menu_icon {
-  background-image: url(imgs_dhx_material/controls.png);
+  background-image: url(imgs_dhx_heidenelke/controls.png);
   width: 20px;
   height: 20px;
   margin-left: -5px;
@@ -858,7 +863,7 @@ div.icon_delete {
   left: 190px;
   top: 1px;
   cursor: pointer;
-  background: url(imgs_dhx_material/calendar.svg) no-repeat;
+  background: url(imgs_dhx_heidenelke/calendar.svg) no-repeat;
 }
 .dhx_matrix_scell,
 .dhx_timeline_scale_header {
@@ -903,7 +908,7 @@ div.icon_delete {
 .dhx_cal_event_line .dhx_event_resize {
   cursor: w-resize;
   cursor: ew-resize;
-  background: url(imgs_dhx_material/drag-vertical.svg) no-repeat center center;
+  background: url(imgs_dhx_heidenelke/drag-vertical.svg) no-repeat center center;
   position: absolute;
   top: 0;
   width: 4px;
@@ -1496,7 +1501,7 @@ div.icon_delete {
   cursor: pointer;
   right: 148px;
   background-color: none;
-  background-image: url(imgs_dhx_material/arrow_left.svg);
+  background-image: url(imgs_dhx_heidenelke/arrow_left.svg);
   background-position: center center;
   background-repeat: no-repeat;
   height: 30px;
@@ -1526,7 +1531,7 @@ div.icon_delete {
   cursor: pointer;
   right: 16px;
   background-color: none;
-  background-image: url(imgs_dhx_material/arrow_right.svg);
+  background-image: url(imgs_dhx_heidenelke/arrow_right.svg);
   background-position: center center;
   background-repeat: no-repeat;
   height: 30px;
@@ -1616,7 +1621,7 @@ div.icon_delete {
 .dhx_scale_holder {
   position: absolute;
   border-right: 1px solid #e0e0e0;
-  background-image: url(imgs_dhx_material/databg.png);
+  background-image: url(imgs_dhx_heidenelke/databg.png);
   -ms-interpolation-mode: nearest-neighbor;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
@@ -1633,7 +1638,7 @@ div.icon_delete {
 .dhx_scale_holder_now {
   position: absolute;
   border-right: 1px solid #e0e0e0;
-  background-image: url(imgs_dhx_material/databg.png);
+  background-image: url(imgs_dhx_heidenelke/databg.png);
 }
 .dhx_scale_hour {
   border-bottom: 1px solid #e0e0e0;
@@ -1722,10 +1727,10 @@ div.icon_delete {
   background-repeat: no-repeat;
 }
 .dhx_multi_day_icon {
-  background-image: url(imgs_dhx_material/clock_big.png);
+  background-image: url(imgs_dhx_heidenelke/clock_big.png);
 }
 .dhx_multi_day_icon_small {
-  background-image: url(imgs_dhx_material/clock_small.png);
+  background-image: url(imgs_dhx_heidenelke/clock_small.png);
 }
 .dhtmlxLayoutPolyContainer_dhx_skyblue .dhx_cal_container {
   background-color: #d0e5ff;
@@ -2015,7 +2020,7 @@ input.dhx_repeat_checkbox {
 .dhx_cal_navline .dhx_cal_export.pdf {
   left: auto;
   right: 200px;
-  background-image: url('imgs_dhx_material/export_pdf.png');
+  background-image: url('imgs_dhx_heidenelke/export_pdf.png');
 }
 .dhx_cal_tab:hover {
   background-color: #edf8ff;
@@ -2115,7 +2120,7 @@ div.dhx_menu_icon {
   left: 0px;
   height: 100%;
   width: 13px;
-  background: #ebeced url(imgs_dhx_material/tree_arrow.svg) no-repeat;
+  background: #ebeced url(imgs_dhx_heidenelke/tree_arrow.svg) no-repeat;
   background-position: 3px center;
 }
 .dhx_matrix_scell.folder.opened .dhx_scell_expand:after {
@@ -2127,7 +2132,7 @@ div.dhx_menu_icon {
   height: 100%;
   width: 13px;
   transform: rotate(-90deg);
-  background: #ebeced url(imgs_dhx_material/tree_arrow.svg) no-repeat;
+  background: #ebeced url(imgs_dhx_heidenelke/tree_arrow.svg) no-repeat;
   background-position: 3px center;
 }
 .dhx_row_folder .dhx_data_table .dhx_matrix_cell {
@@ -2218,12 +2223,12 @@ td .dhx_month_head a:hover,
 }
 .dhx_cal_header .dhx_cal_next_button:hover,
 .dhx_cal_header .dhx_cal_prev_button:hover {
-  background-image: url(imgs_dhx_material/arrow_left_hov.svg);
+  background-image: url(imgs_dhx_heidenelke/arrow_left_hov.svg);
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 }
 .dhx_cal_header .dhx_cal_next_button:hover {
-  background-image: url(imgs_dhx_material/arrow_right_hov.svg);
+  background-image: url(imgs_dhx_heidenelke/arrow_right_hov.svg);
 }
 /*============================================================================================
                             5.	Modal Pop-Ups and It's Elements
@@ -2565,10 +2570,10 @@ textarea.dhx_cal_editor {
   width: 102px;
   box-sizing: border-box;
   padding: 0 0 0 34px!important;
-  background: url(imgs_dhx_material/time.svg) no-repeat 8px 5px, url(imgs_dhx_material/menu-down.svg) no-repeat 100% 3px;
+  background: url(imgs_dhx_heidenelke/time.svg) no-repeat 8px 5px, url(imgs_dhx_heidenelke/menu-down.svg) no-repeat 100% 3px;
 }
 .dhx_section_time.dhx_lightbox_minical select.dhx_lightbox_time_select {
-  background: url(imgs_dhx_material/menu-down.svg) no-repeat 100% 3px;
+  background: url(imgs_dhx_heidenelke/menu-down.svg) no-repeat 100% 3px;
   padding: 0 0 0 5px!important;
   width: 62px;
 }
@@ -2577,18 +2582,18 @@ textarea.dhx_cal_editor {
 }
 .dhx_section_time select.dhx_lightbox_day_select {
   min-width: 46px!important;
-  background: url(imgs_dhx_material/menu-down.svg) no-repeat 100% 3px;
+  background: url(imgs_dhx_heidenelke/menu-down.svg) no-repeat 100% 3px;
   box-sizing: border-box;
 }
 .dhx_section_time select.dhx_lightbox_month_select {
   width: 98px!important;
-  background: url(imgs_dhx_material/menu-down.svg) no-repeat 100% 3px;
+  background: url(imgs_dhx_heidenelke/menu-down.svg) no-repeat 100% 3px;
 }
 .dhx_section_time select.dhx_lightbox_year_select {
   min-width: 58px!important;
   max-width: 58px!important;
   padding-left: 3px !important;
-  background: url(imgs_dhx_material/menu-down.svg) no-repeat 100% 3px;
+  background: url(imgs_dhx_heidenelke/menu-down.svg) no-repeat 100% 3px;
 }
 .dhx_section_time select:nth-child(6) {
   margin: 0 0px 16px 4px;
@@ -2623,7 +2628,7 @@ textarea.dhx_cal_editor {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url(imgs_dhx_material/menu-down.svg) no-repeat 100% 3px;
+  background: url(imgs_dhx_heidenelke/menu-down.svg) no-repeat 100% 3px;
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 .dhx_multi_select_control {
@@ -3130,7 +3135,7 @@ div.dhx_year_tooltip .dhx_tooltip_line {
   padding: 0 0 0 48px;
 }
 div.dhx_year_tooltip .dhx_tooltip_line .dhx_event_icon.icon_details {
-  background: url(imgs_dhx_material/agenda-calendar.svg) no-repeat center center;
+  background: url(imgs_dhx_heidenelke/agenda-calendar.svg) no-repeat center center;
   width: 40px;
   height: 40px;
   position: absolute;
@@ -3200,7 +3205,7 @@ div.dhx_year_tooltip .dhx_tooltip_line .dhx_tooltip_date {
 }
 .dhx_map_area .dhx_map_line .dhx_event_icon,
 .dhx_agenda_area .dhx_agenda_line .dhx_event_icon {
-  background: url(imgs_dhx_material/agenda-calendar.svg) no-repeat center center;
+  background: url(imgs_dhx_heidenelke/agenda-calendar.svg) no-repeat center center;
   height: 33px;
   width: 33px;
   margin: 2px 0 0 3px;
@@ -3253,5 +3258,8 @@ div.dhx_year_tooltip .dhx_tooltip_line .dhx_tooltip_date {
   text-overflow: ellipsis;
 }
 .dhx_expand_icon {
-  background-image: url("imgs_dhx_material/collapse_expand_icon.png");
+  background-image: url("imgs_dhx_heidenelke/collapse_expand_icon.png");
+}
+.tentative {
+  background-color: #aaaaaa;
 }

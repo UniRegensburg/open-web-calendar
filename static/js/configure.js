@@ -65,7 +65,8 @@ var template = {
         } else {
             geoUrl = OSM_URL + encodeURIComponent(event.location);
         }
-        return makeLink(geoUrl, text);
+        return text;
+        //return makeLink(geoUrl, text);
     },
     "debug": function(event) {
         return "<pre class='debug' style='display:none'>" +

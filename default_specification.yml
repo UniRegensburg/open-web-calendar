@@ -10,12 +10,13 @@
 ## url can be a single link to an ics file or a list.
 #url: https://your.link.to/a-file.ics
 url:
-- https://www.calendarlabs.com/ical-calendar/ics/46/Germany_Holidays.ics
+#- https://www.calendarlabs.com/ical-calendar/ics/46/Germany_Holidays.ics
+- https://tools.mi.ur.de/davical/public.php/mi-lab/VR4-Studio
 #- https://www.calendarlabs.com/ical-calendar/ics/46/Germany_Holidays.ics
 #- https://www.calendarlabs.com/ical-calendar/ics/46/Germany_Holidays.ics
 
 ## The title is displayed as the title of the html page.
-title: "Open Web Calendar"
+title: "Laborkalender MI"
 
 ## The language of the calendar. You can choose from these languages:
 ## Arabic: "ar"
@@ -47,7 +48,7 @@ title: "Open Web Calendar"
 ## Swedish: "sv"
 ## Turkish: "tr"
 ## Ukrainian: "ua"
-language: "en"
+language: "de"
 
 ## The skin changes the look of the calendar.
 ## They are located in the static/css/dhtmlx folder.
@@ -56,7 +57,7 @@ language: "en"
 #skin: "dhtmlxscheduler_terrace.css"
 #skin: "dhtmlxscheduler_contrast_white.css"
 #skin: "dhtmlxscheduler_flat.css"
-skin: "dhtmlxscheduler_material.css"
+skin: "dhtmlxscheduler_material_heidenelke.css"
 
 ## You can embed custom css code, i.e. to change the background or font.
 css: ""
@@ -73,8 +74,8 @@ target: "_top"
 loader: "/img/loaders/circular-loader.gif"
 
 ## Choose which tab to display when the calendar opens.
-tab: "month"
-#tab: "week"
+#tab: "month"
+tab: "week"
 #tab: "day"
 #tab: "agenda"
 
@@ -82,7 +83,6 @@ tab: "month"
 tabs:
 - "month"
 - "week"
-- "day"
 #- agenda
 
 ## Users can control the calendar.

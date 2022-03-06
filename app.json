@@ -13,7 +13,7 @@
     "CACHE_REQUESTED_URLS_FOR_SECONDS": {
       "description": "To speed up loading time, the requests to urls can be cached. This also delays displaying updates.",
       "value": "10",
-      "required": true
+      "required": false
     }
   },
   "image": "heroku/python",

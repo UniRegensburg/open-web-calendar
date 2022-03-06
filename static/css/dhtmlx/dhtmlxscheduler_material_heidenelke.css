@@ -204,6 +204,9 @@ div.dhx_modal_cover {
   border: 1px solid #ff3c3c;
   color: #FFF;
 }
+.dhx_cal_event {
+  background-color: #9c004b;
+}
 .dhx_cal_event .dhx_header,
 .dhx_cal_event .dhx_title,
 .dhx_cal_event .dhx_body,

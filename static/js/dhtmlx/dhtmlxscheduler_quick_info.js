@@ -1,20 +1,298 @@
 /*
+
 @license
-dhtmlxScheduler v.5.1.6 Stardard
+dhtmlxScheduler v.5.3.13 Standard
 
-This software is covered by GPL license. You also can obtain Commercial or Enterprise license to use it in non-GPL project - please contact sales@dhtmlx.com. Usage without proper license is prohibited.
+To use dhtmlxScheduler in non-GPL projects (and get Pro version of the product), please obtain Commercial/Enterprise or Ultimate license on our site https://dhtmlx.com/docs/products/dhtmlxScheduler/#licensing or contact us at sales@dhtmlx.com
 
-(c) Dinamenta, UAB.
+(c) XB Software Ltd.
+
 */
-scheduler.config.icons_select=["icon_details","icon_delete"],scheduler.config.details_on_create=!0,scheduler.config.show_quick_info=!0,scheduler.xy.menu_width=0,scheduler.attachEvent("onClick",function(e){return scheduler.showQuickInfo(e),!0}),function(){for(var e=["onEmptyClick","onViewChange","onLightbox","onBeforeEventDelete","onBeforeDrag"],t=function(){return scheduler.hideQuickInfo(!0),!0},a=0;a<e.length;a++)scheduler.attachEvent(e[a],t)}(),scheduler.templates.quick_info_title=function(e,t,a){
-return a.text.substr(0,50)},scheduler.templates.quick_info_content=function(e,t,a){return a.details||a.text},scheduler.templates.quick_info_date=function(e,t,a){return scheduler.isOneDayEvent(a)?scheduler.templates.day_date(e,t,a)+" "+scheduler.templates.event_header(e,t,a):scheduler.templates.week_date(e,t,a)},scheduler.showQuickInfo=function(e){if(e!=this._quick_info_box_id&&this.config.show_quick_info){this.hideQuickInfo(!0);var t=this._get_event_counter_part(e);t&&(this._quick_info_box=this._init_quick_info(t),
-this._fill_quick_data(e),this._show_quick_info(t),this.callEvent("onQuickInfo",[e]))}},function(){function e(e){e=e||"";var t,a=parseFloat(e),r=e.match(/m?s/);switch(r&&(r=r[0]),r){case"s":t=1e3*a;break;case"ms":t=a;break;default:t=0}return t}scheduler.hideQuickInfo=function(t){var a=this._quick_info_box,r=this._quick_info_box_id;if(this._quick_info_box_id=0,a&&a.parentNode){var n=a.offsetWidth;if(scheduler.config.quick_info_detached)return this.callEvent("onAfterQuickInfo",[r]),a.parentNode.removeChild(a);
-if("auto"==a.style.right?a.style.left=-n+"px":a.style.right=-n+"px",t)a.parentNode.removeChild(a);else{var i;window.getComputedStyle?i=window.getComputedStyle(a,null):a.currentStyle&&(i=a.currentStyle);var d=e(i["transition-delay"])+e(i["transition-duration"]);setTimeout(function(){a.parentNode&&a.parentNode.removeChild(a)},d)}this.callEvent("onAfterQuickInfo",[r])}}}(),dhtmlxEvent(window,"keydown",function(e){27==e.keyCode&&scheduler.hideQuickInfo()}),scheduler._show_quick_info=function(e){var t=scheduler._quick_info_box;
-scheduler._obj.appendChild(t);var a=t.offsetWidth,r=t.offsetHeight;scheduler.config.quick_info_detached?(t.style.left=e.left-e.dx*(a-e.width)+"px",t.style.top=e.top-(e.dy?r:-e.height)+"px"):(t.style.top=this.xy.scale_height+this.xy.nav_height+20+"px",1==e.dx?(t.style.right="auto",t.style.left=-a+"px",setTimeout(function(){t.style.left="-10px"},1)):(t.style.left="auto",t.style.right=-a+"px",setTimeout(function(){t.style.right="-10px"},1)),t.className=t.className.replace(" dhx_qi_left","").replace(" dhx_qi_right","")+" dhx_qi_"+(1==e.dx?"left":"right"));
-},scheduler.attachEvent("onTemplatesReady",function(){if(scheduler.hideQuickInfo(),this._quick_info_box){var e=this._quick_info_box;e.parentNode&&e.parentNode.removeChild(e),this._quick_info_box=null}}),scheduler._quick_info_onscroll_handler=function(e){scheduler.hideQuickInfo()},scheduler._init_quick_info=function(){if(!this._quick_info_box){var e=scheduler.xy,t=this._quick_info_box=document.createElement("div");this._waiAria.quickInfoAttr(t),t.className="dhx_cal_quick_info",scheduler.$testmode&&(t.className+=" dhx_no_animate");
-var a=this._waiAria.quickInfoHeaderAttrString(),r='<div class="dhx_cal_qi_title" style="height:'+e.quick_info_title+'px" '+a+'><div class="dhx_cal_qi_tcontent"></div><div  class="dhx_cal_qi_tdate"></div></div><div class="dhx_cal_qi_content"></div>';r+='<div class="dhx_cal_qi_controls" style="height:'+e.quick_info_buttons+'px">';for(var n=scheduler.config.icons_select,i=0;i<n.length;i++){var a=this._waiAria.quickInfoButtonAttrString(this.locale.labels[n[i]]);r+="<div "+a+' class="dhx_qi_big_icon '+n[i]+'" title="'+scheduler.locale.labels[n[i]]+"\"><div class='dhx_menu_icon "+n[i]+"'></div><div>"+scheduler.locale.labels[n[i]]+"</div></div>";
-}r+="</div>",t.innerHTML=r,dhtmlxEvent(t,"click",function(e){e=e||event,scheduler._qi_button_click(e.target||e.srcElement)}),scheduler.config.quick_info_detached&&(scheduler._detachDomEvent(scheduler._els.dhx_cal_data[0],"scroll",scheduler._quick_info_onscroll_handler),dhtmlxEvent(scheduler._els.dhx_cal_data[0],"scroll",scheduler._quick_info_onscroll_handler))}return this._quick_info_box},scheduler._qi_button_click=function(e){var t=scheduler._quick_info_box;if(e&&e!=t){var a=scheduler._getClassName(e);
-if(-1!=a.indexOf("_icon")){var r=scheduler._quick_info_box_id;scheduler._click.buttons[a.split(" ")[1].replace("icon_","")](r)}else scheduler._qi_button_click(e.parentNode)}},scheduler._get_event_counter_part=function(e){for(var t=scheduler.getRenderedEvent(e),a=0,r=0,n=t;n&&n!=scheduler._obj;)a+=n.offsetLeft,r+=n.offsetTop-n.scrollTop,n=n.offsetParent;if(n){var i=a+t.offsetWidth/2>scheduler._x/2?1:0,d=r+t.offsetHeight/2>scheduler._y/2?1:0;return{left:a,top:r,dx:i,dy:d,width:t.offsetWidth,height:t.offsetHeight
-}}return 0},scheduler._fill_quick_data=function(e){var t=scheduler.getEvent(e),a=scheduler._quick_info_box;scheduler._quick_info_box_id=e;var r={content:scheduler.templates.quick_info_title(t.start_date,t.end_date,t),date:scheduler.templates.quick_info_date(t.start_date,t.end_date,t)},n=a.firstChild.firstChild;n.innerHTML=r.content;var i=n.nextSibling;i.innerHTML=r.date,scheduler._waiAria.quickInfoHeader(a,[r.content,r.date].join(" "));var d=a.firstChild.nextSibling;d.innerHTML=scheduler.templates.quick_info_content(t.start_date,t.end_date,t);
+Scheduler.plugin(function(scheduler){
+
+scheduler.config.icons_select = [];
+scheduler.config.details_on_create = true;
+scheduler.config.show_quick_info = true;
+scheduler.xy.menu_width = 0;
+
+scheduler.attachEvent("onClick", function(id){
+	scheduler.showQuickInfo(id);
+	return true;
+});
+
+(function(){
+	// pass `force` argument in order to hide quick info synchronously
+	// so it won't affect showQuickInfo call that can follow
+	var events = ["onEmptyClick", "onViewChange", "onLightbox", "onBeforeEventDelete", "onBeforeDrag"];
+	var hiding_function = function(){
+		scheduler.hideQuickInfo(true);
+		return true;
+	};
+	for (var i=0; i<events.length; i++){
+		scheduler.attachEvent(events[i], hiding_function);
+	}
+})();
+
+scheduler.templates.quick_info_title = function(start, end, ev){ return ev.text.substr(0,50); };
+scheduler.templates.quick_info_content = function(start, end, ev){ return ev.details || ev.text; };
+scheduler.templates.quick_info_date = function(start, end, ev){
+	if (scheduler.isOneDayEvent(ev) && scheduler.config.rtl){
+		return scheduler.templates.day_date(start, end, ev) + " " +scheduler.templates.event_header(end, start, ev);
+	} else if (scheduler.isOneDayEvent(ev)) {
+		return scheduler.templates.day_date(start, end, ev) + " " +scheduler.templates.event_header(start, end, ev);
+	} else if (scheduler.config.rtl) {
+		return scheduler.templates.week_date(end, start, ev);
+	} else {
+		return scheduler.templates.week_date(start, end, ev);
+	}
 };
-//# sourceMappingURL=../sources/ext/dhtmlxscheduler_quick_info.js.map
+
+scheduler.showQuickInfo = function(id){
+	if (id == this._quick_info_box_id || !this.config.show_quick_info) return;
+	this.hideQuickInfo(true);
+
+	var pos = this._get_event_counter_part(id);
+
+	if (pos){
+		this._quick_info_box = this._init_quick_info(pos);
+		this._fill_quick_data(id);
+		this._show_quick_info(pos);
+
+		this.callEvent("onQuickInfo", [id]);
+	}
+};
+
+(function(){
+
+function cssTimeToMs(time) {
+	time = time || "";
+
+	var num = parseFloat(time),
+		unit = time.match(/m?s/),
+		milliseconds;
+
+	if (unit) {
+		unit = unit[0];
+	}
+
+	switch (unit) {
+		case "s": // seconds
+			milliseconds = num * 1000;
+			break;
+		case "ms": // milliseconds
+			milliseconds = num;
+			break;
+		default:
+			milliseconds = 0;
+			break;
+	}
+
+	return milliseconds;
+}
+
+scheduler.hideQuickInfo = function(forced){
+	var qi = this._quick_info_box;
+	var eventId = this._quick_info_box_id;
+	this._quick_info_box_id = 0;
+
+	if (qi && qi.parentNode){
+		var width = qi.offsetWidth;
+		if (scheduler.config.quick_info_detached) {
+			this.callEvent("onAfterQuickInfo", [eventId]);
+			return qi.parentNode.removeChild(qi);
+		}
+
+		if (qi.style.right == "auto")
+			qi.style.left = -width + "px";
+		else
+			qi.style.right = -width + "px";
+
+		if (forced) {
+			qi.parentNode.removeChild(qi);
+		}else{
+
+			var style;
+			if(window.getComputedStyle){
+				style = window.getComputedStyle(qi, null);
+			}else if(qi.currentStyle){
+				style = qi.currentStyle;
+			}
+			var delay = cssTimeToMs(style["transition-delay"]) + cssTimeToMs(style["transition-duration"]);
+			setTimeout(function(){
+				if(qi.parentNode){
+					qi.parentNode.removeChild(qi);
+				}
+			}, delay);
+		}
+
+		this.callEvent("onAfterQuickInfo", [eventId]);
+	}
+};
+
+})();
+
+scheduler.event(window, "keydown", function(e){
+	if (e.keyCode == 27)
+		scheduler.hideQuickInfo();
+});
+
+scheduler._show_quick_info = function(pos){
+	var qi = scheduler._quick_info_box;
+	scheduler._obj.appendChild(qi);
+	var width = qi.offsetWidth;
+	var height = qi.offsetHeight;
+
+	if (scheduler.config.quick_info_detached){
+		var left = pos.left - pos.dx*(width - pos.width);
+		var right = left + width;
+		if(right > window.innerWidth){
+			left = window.innerWidth - width;
+		}
+		left = Math.max(0, left);
+
+		qi.style.left = left + "px";
+		qi.style.top = pos.top - (pos.dy?height:-pos.height) + "px";
+	} else {
+		qi.style.top = this.xy.scale_height+this.xy.nav_height + 20 + "px";
+		if (pos.dx == 1){
+			qi.style.right = "auto";
+			qi.style.left = -width + "px";
+
+			setTimeout(function(){
+				qi.style.left = "-10px";
+			},1);
+		} else {
+			qi.style.left = "auto";
+			qi.style.right = -width + "px";
+
+			setTimeout(function(){
+				qi.style.right = "-10px";
+			},1);
+		}
+		qi.className = qi.className.replace(" dhx_qi_left","").replace(" dhx_qi_right","")+" dhx_qi_"+(pos.dx==1?"left":"right");
+	}
+};
+scheduler.attachEvent("onTemplatesReady", function(){
+	scheduler.hideQuickInfo();
+	if(this._quick_info_box){
+		var box = this._quick_info_box;
+		if(box.parentNode){
+			box.parentNode.removeChild(box);
+		}
+		this._quick_info_box = null;
+	}
+});
+scheduler._quick_info_onscroll_handler = function(e){
+	scheduler.hideQuickInfo();
+};
+scheduler._init_quick_info = function(){
+	if (!this._quick_info_box){
+		var sizes = scheduler.xy;
+
+		var qi = this._quick_info_box = document.createElement("div");
+
+		this._waiAria.quickInfoAttr(qi);
+
+		qi.className = "dhx_cal_quick_info";
+		if (scheduler.$testmode)
+			qi.className += " dhx_no_animate";
+		if (scheduler.config.rtl) qi.className += " dhx_quick_info_rtl";
+	//title
+		var ariaAttr = this._waiAria.quickInfoHeaderAttrString();
+		var html = "<div class=\"dhx_cal_qi_title\" style=\"height:"+sizes.quick_info_title+"px\" "+ariaAttr+">" +
+			"<div class=\"dhx_cal_qi_tcontent\"></div><div  class=\"dhx_cal_qi_tdate\"></div>" +
+			"</div>" +
+			"<div class=\"dhx_cal_qi_content\"></div>";
+
+	//buttons
+		html += "<div class=\"dhx_cal_qi_controls\" style=\"height:"+sizes.quick_info_buttons+"px\">";
+		var buttons = scheduler.config.icons_select;
+			for (var i = 0; i < buttons.length; i++) {
+				var ariaAttr = this._waiAria.quickInfoButtonAttrString(this.locale.labels[buttons[i]]);
+				html += "<div "+ariaAttr+" class=\"dhx_qi_big_icon " + buttons[i] + "\" title=\"" + scheduler.locale.labels[buttons[i]] + "\"><div class='dhx_menu_icon " + buttons[i] + "'></div><div>" + scheduler.locale.labels[buttons[i]] + "</div></div>";
+			}
+		// }
+		html += "</div>";
+
+		qi.innerHTML = html;
+		scheduler.event(qi, "click", function(ev){
+			ev = ev || event;
+			scheduler._qi_button_click(ev.target || ev.srcElement);
+		});
+		if (scheduler.config.quick_info_detached){
+			scheduler._detachDomEvent(scheduler._els["dhx_cal_data"][0], "scroll", scheduler._quick_info_onscroll_handler);
+			scheduler.event(scheduler._els["dhx_cal_data"][0], "scroll", scheduler._quick_info_onscroll_handler);
+		}
+	}
+
+	return this._quick_info_box;
+};
+
+scheduler._qi_button_click = function(node){
+	var box = scheduler._quick_info_box;
+	if (!node || node == box) return;
+
+	var mask = scheduler._getClassName(node);
+	if (mask.indexOf("_icon")!=-1){
+		var id = scheduler._quick_info_box_id;
+		scheduler._click.buttons[mask.split(" ")[1].replace("icon_","")](id);
+	} else
+		scheduler._qi_button_click(node.parentNode);
+};
+scheduler._get_event_counter_part = function(id){
+	var domEv = scheduler.getRenderedEvent(id);
+	var left = 0;
+	var top = 0;
+
+	var node = domEv;
+	while (node && node != scheduler._obj){
+		left += node.offsetLeft;
+		top += node.offsetTop-node.scrollTop;
+		node = node.offsetParent;
+	}
+	if(node){
+		var dx = (left + domEv.offsetWidth/2) > (scheduler._x/2) ? 1 : 0;
+		var dy = (top + domEv.offsetHeight/2) > (scheduler._y/2) ? 1 : 0;
+
+		return { left:left, top:top, dx:dx, dy:dy,
+			width:domEv.offsetWidth, height:domEv.offsetHeight };
+	}
+	return 0;
+};
+
+scheduler._fill_quick_data  = function(id){
+	var ev = scheduler.getEvent(id);
+	var qi = scheduler._quick_info_box;
+
+	scheduler._quick_info_box_id = id;
+
+//title content
+
+	var header = {
+		content: scheduler.templates.quick_info_title(ev.start_date, ev.end_date, ev),
+		date: scheduler.templates.quick_info_date(ev.start_date, ev.end_date, ev)
+	};
+
+    if(ev.tentative)
+    {
+        qi.firstChild.classList.add("tentative");
+    }
+    else
+    {
+        qi.firstChild.classList.remove("tentative");
+    }
+
+	var titleContent = qi.firstChild.firstChild;
+	titleContent.innerHTML = header.content;
+	var titleDate = titleContent.nextSibling;
+	titleDate.innerHTML = header.date;
+
+	scheduler._waiAria.quickInfoHeader(qi, [header.content, header.date].join(" "));
+
+//main content
+	var main = qi.firstChild.nextSibling;
+	main.innerHTML = scheduler.templates.quick_info_content(ev.start_date, ev.end_date, ev);
+};
+
+
+});

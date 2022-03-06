@@ -5598,6 +5598,8 @@ scheduler.addEvent = function(start_date, end_date, text, id, extra_data) {
 	ev.id = ev.id || scheduler.uid();
 	ev.text = ev.text || "";
 
+    ev.tentative = ev.ical.indexOf("TENTATIVE") > -1;
+
 	if (typeof ev.start_date == "string")  ev.start_date = this.templates.api_date(ev.start_date);
 	if (typeof ev.end_date == "string")  ev.end_date = this.templates.api_date(ev.end_date);
 	var d = (this.config.event_duration || this.config.time_step) * 60000;
@@ -6426,6 +6428,7 @@ scheduler.render_event = function(ev, buffer, parentWidth) {
 		this._waiAria.eventAttr(ev, d);
 
 		d.className = "dhx_cal_event dhx_cal_editor";
+
 		if (this.config.rtl) left++;
 		this.set_xy(d, width, height - 20, left, top + (scheduler.xy.event_header_height || 14));
 
@@ -6511,6 +6514,11 @@ scheduler._render_v_bar = function (ev, x, y, w, h, style, contentA, contentB, b
 		cs += " dhx_cal_event_cascade";
 	}
 
+    if(ev.tentative)
+    {
+        cs += " tentative";
+    }
+
 	var bg_color = (ev.color ? ("background-color:" + ev.color + ";") : "");
 	var color = (ev.textColor ? ("color:" + ev.textColor + ";") : "");
 
@@ -6524,6 +6532,7 @@ scheduler._render_v_bar = function (ev, x, y, w, h, style, contentA, contentB, b
 
 	var bodyHeight = borderBox ? (h - this.xy.event_header_height - 1) : (h-(this._quirks?20:30) + 1);
 
+    var tentative = ev.tentative ? " tentative" : "";
 
 	var html = '<div event_id="' + id + '" class="' + cs +
 				'" style="position:absolute; top:' + y + 'px; ' +
@@ -6540,7 +6549,7 @@ scheduler._render_v_bar = function (ev, x, y, w, h, style, contentA, contentB, b
 
 		var inner_html = '<div class="dhx_event_move dhx_header" style=" width:' + headerWidth + 'px;' + bg_color + '" >&nbsp;</div>';
 		inner_html += '<div class="dhx_event_move dhx_title" style="' + bg_color + '' + color + '">' + contentA + '</div>';
-		inner_html += '<div class="dhx_body" style=" width:' + bodyWidth + 'px; height:' + bodyHeight + 'px;' + bg_color + '' + color + '">' + contentB + '</div>'; // +2 css specific, moved from render_event
+		inner_html += '<div class="dhx_body' + tentative + '" style=" width:' + bodyWidth + 'px; height:' + bodyHeight + 'px;' + bg_color + '' + color + '">' + contentB + '</div>'; // +2 css specific, moved from render_event
 
 		var footer_class = "dhx_event_resize dhx_footer";
 		if (bottom || ev._drag_resize === false)

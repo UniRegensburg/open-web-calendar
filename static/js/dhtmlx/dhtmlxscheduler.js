@@ -2353,6 +2353,7 @@ function addResizeListener(scheduler){
 	if(scheduler.config.wai_aria_attributes){
 		resizeWatcher.setAttribute("role", "none");
 		resizeWatcher.setAttribute("aria-hidden", true);
+		resizeWatcher.setAttribute("frameBorder", "0");
 	}
 
 	// in some environments (namely, in SalesForce) iframe.contentWindow is not available

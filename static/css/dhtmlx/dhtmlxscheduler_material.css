@@ -204,22 +204,20 @@ div.dhx_modal_cover {
   border: 1px solid #ff3c3c;
   color: #FFF;
 }
-.dhx_cal_event {
-  background-color: #0288d1;
-}
 .dhx_cal_event .dhx_header,
 .dhx_cal_event .dhx_title,
 .dhx_cal_event .dhx_body,
 .dhx_cal_event .dhx_footer {
+  background-color: #0288d1;
   border: 1px solid transparent;
   color: #ffffff;
   overflow: hidden;
   width: 100%;
 }
-.dhx_cal_event .dhx_body {
-  background-color: #0288d1;
-}
-.dhx_cal_event .tentative {
+.dhx_cal_event .dhx_header .tentative,
+.dhx_cal_event .dhx_title .tentative,
+.dhx_cal_event .dhx_body .tentative,
+.dhx_cal_event .dhx_footer .tentative {
   background-color: #aaaaaa;
 }
 .dhx_move_denid .dhx_cal_event .dhx_header,

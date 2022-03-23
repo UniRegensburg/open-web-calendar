@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="8"
+   height="12"
+   viewBox="0 0 8 12"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="arrow_right_hov.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="72.583333"
+     inkscape:cx="3.9954076"
+     inkscape:cy="6"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <polygon
+     fill-rule="evenodd"
+     fill="#0288D1"
+     points=".6 1.4 2 0 8 6 2 12 .6 10.6 5.2 6"
+     opacity="1"
+     id="polygon2"
+     style="fill:#9c004b;fill-opacity:1" />
+</svg>

@@ -6527,7 +6527,8 @@ scheduler._render_v_bar = function (ev, x, y, w, h, style, contentA, contentB, b
 	var borderBoxWidth = w - 2;
 	var boxWidth = borderBox ? borderBoxWidth : (w-4),
 		headerWidth = borderBox ? borderBoxWidth : (w-6),
-		bodyWidth = borderBox ? borderBoxWidth : (w-(this._quirks?4:14)),
+		//bodyWidth = borderBox ? borderBoxWidth : (w-(this._quirks?4:14)),
+		bodyWidth = borderBox ? borderBoxWidth : (w-4),
 		footerWidth = borderBox ? (borderBoxWidth - 2) : (w-8);
 
 	var bodyHeight = borderBox ? (h - this.xy.event_header_height - 1) : (h-(this._quirks?20:30) + 1);

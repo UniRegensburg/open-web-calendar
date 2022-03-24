@@ -6551,7 +6551,8 @@ scheduler._render_v_bar = function (ev, x, y, w, h, style, contentA, contentB, b
 		inner_html += '<div class="dhx_event_move dhx_title" style="' + bg_color + '' + color + '">' + contentA + '</div>';
 		inner_html += '<div class="dhx_body' + tentative + '" style=" width:' + bodyWidth + 'px; height:' + bodyHeight + 'px;' + bg_color + '' + color + '">' + contentB + '</div>'; // +2 css specific, moved from render_event
 
-		var footer_class = "dhx_event_resize dhx_footer";
+		//var footer_class = "dhx_event_resize dhx_footer";
+		var footer_class = "dhx_footer";
 		if (bottom || ev._drag_resize === false)
 			footer_class = "dhx_resize_denied " + footer_class;
 

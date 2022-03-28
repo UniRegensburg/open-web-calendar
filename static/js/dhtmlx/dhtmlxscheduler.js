@@ -6549,7 +6549,7 @@ scheduler._render_v_bar = function (ev, x, y, w, h, style, contentA, contentB, b
 		container = d.firstChild;
 
 		var inner_html = '<div class="dhx_event_move dhx_header" style=" width:' + headerWidth + 'px;' + bg_color + '" >&nbsp;</div>';
-		inner_html += '<div class="dhx_event_move dhx_title" style="' + bg_color + '' + color + '">' + contentA + '</div>';
+		inner_html += '<div class="dhx_event_move dhx_title ' + tentative + '" style="' + bg_color + '' + color + '">' + contentA + '</div>';
 		inner_html += '<div class="dhx_body' + tentative + '" style=" width:' + bodyWidth + 'px; height:' + bodyHeight + 'px;' + bg_color + '' + color + '">' + contentB + '</div>'; // +2 css specific, moved from render_event
 
 		//var footer_class = "dhx_event_resize dhx_footer";

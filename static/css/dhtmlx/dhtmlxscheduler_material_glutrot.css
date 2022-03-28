@@ -214,9 +214,11 @@ div.dhx_modal_cover {
   overflow: hidden;
   width: 100%;
 }
+.dhx_cal_event .tentative,
 .dhx_cal_event .dhx_header .tentative,
 .dhx_cal_event .dhx_title .tentative,
 .dhx_cal_event .dhx_body .tentative,
+.dhx_cal_event .event .tentative,
 .dhx_cal_event .dhx_footer .tentative {
   background-color: #aaaaaa;
 }
